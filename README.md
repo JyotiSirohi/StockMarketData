@@ -9,4 +9,22 @@ The system includes:
 
 ---
 
-## 🧱 Folder Structure
+## 🚀 How to Run the Project
+
+> Run all commands from the **project root** (`StockMarketData/`)
+> Create Kafka Topic Manually
+    docker exec stockmarketdata-kafka-1 kafka-topics \
+      --bootstrap-server localhost:9092 \
+      --create --topic stock.aapl --partitions 1 --replication-factor 1
+
+    docker exec stockmarketdata-kafka-1 kafka-topics \
+      --bootstrap-server localhost:9092 \
+      --create --topic stock.msft --partitions 1 --replication-factor 1
+    
+    docker exec stockmarketdata-kafka-1 kafka-topics \
+      --bootstrap-server localhost:9092 \
+      --create --topic stock.tsla --partitions 1 --replication-factor 1
+> Run Producer and Consumer
+
+This app listens to all stock.* topics and prints incoming messages.
+
